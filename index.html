@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
-<body style="height: 1500px;">
+<body style="height: 2000px;">
     <div id="header">
         <div class="top-menu wrapper">
             <a href="#" id="login">LOGIN</a>
@@ -128,7 +128,20 @@
             加载更多...
         </div>
     </div>
+    <script id="product-tpl" type="text/html">
+        <li class="product-item">
+            <img src="{{img}}" alt="">
+            <div class="product-info">
+                <h3 class="product-name">{{name}}</h3>
+                <strong class="product-price">${{price}}</strong>
+                <input type="text" class="quantity" value="{{quantity}}">
+                <button class="btn-add-cart">Add</button>
+            </div>
+        </li>
+    </script>
+
     <script src="js/jquery.min.js"></script>
+    <script src="js/template.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>

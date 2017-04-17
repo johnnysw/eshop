@@ -12,7 +12,7 @@ $(function () {
         totalAmount: 0,
         productList: [],
         addCart: function (product) {//添加商品到购物车
-            this.productList.push(product);
+            //this.productList.push(product);
             this.totalAmount += product.quantity * product.price;
             this.totalQuantity += product.quantity;
 
@@ -25,44 +25,51 @@ $(function () {
         }
     };
     var productComp = {//商品相关功能对象
+        $loading: $('#loading'),
+        $loadMore: $('#load-more'),
         $productList: $('#product-list'),
+        isLoaded: true,
         init: function () {
+            var _this = this;
             this.loadData();//先加载一批数据
+
             this.$productList.on('click', '.btn-add-cart', function () {
                 var product = $(this).parents('.product-item').data('item-data');
                 product.quantity = parseInt($(this).prev().val());
                 cart.addCart(product);
             });
+            this.$loadMore.on('click', function () {
+                _this.loadMore();
+            });
         },
         render: function () {
             $('#quantity').html(cart.totalQuantity);
             $('#money').html(cart.totalAmount);
-
-
+            //...
         },
-        loadData: function () {
-            //url=prouduct/get_products
-            // var _this = this;
+        loadData: function (callback) {
+            this.$loading.show();
             $.get('js/data.json', {}, function (data) {
                 for(var i=0; i<data.length; i++){
-
                     var product = new Product(data[i].product_id, data[i].product_name, data[i].product_price, data[i].product_img);
-
-                    var $product = $('<li class="product-item"><img src="'+product.img+'" alt="">\
-                                        <div class="product-info">\
-                                            <h3 class="product-name">'+product.name+'</h3>\
-                                            <strong class="product-price">$'+product.price+'</strong>\
-                                            <input type="text" class="quantity" value="'+product.quantity+'">\
-                                            <button class="btn-add-cart">Add</button>\
-                                        </div>\
-                                        </li>');
+                    var productHtml = template('product-tpl', product);
+                    var $product = $(productHtml);
                     $product.data('item-data', product);
                     this.$productList.append($product);
                 }
+                this.$loading.hide();
+                this.$loadMore.show();
+                this.isLoaded = true;
+                callback && callback();
             }.bind(this), 'json');
         },
         loadMore: function () {
-            
+            var _this = this;
+            if(this.isLoaded){//如果isLoaded为true代表已经加载完，可以再次进行加载
+                this.isLoaded = false;
+                this.loadData();
+            }
+
         }
     };
     productComp.init();
