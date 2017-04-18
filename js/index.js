@@ -29,6 +29,8 @@ $(function () {
         $loadMore: $('#load-more'),
         $productList: $('#product-list'),
         isLoaded: true,
+        pageNo: 1,
+        isEnd: false,
         init: function () {
             var _this = this;
             this.loadData();//先加载一批数据
@@ -49,9 +51,10 @@ $(function () {
         },
         loadData: function (callback) {
             this.$loading.show();
-            $.get('js/data.json', {}, function (data) {
-                for(var i=0; i<data.length; i++){
-                    var product = new Product(data[i].product_id, data[i].product_name, data[i].product_price, data[i].product_img);
+            $.get('product/get_products', {page: this.pageNo}, function (data) {
+                for(var i=0; i<data.products.length; i++){
+                    var products = data.products;
+                    var product = new Product(products[i].prod_id, products[i].prod_name, products[i].prod_price, products[i].prod_img);
                     var productHtml = template('product-tpl', product);
                     var $product = $(productHtml);
                     $product.data('item-data', product);
@@ -60,12 +63,18 @@ $(function () {
                 this.$loading.hide();
                 this.$loadMore.show();
                 this.isLoaded = true;
+                this.isEnd = data.isEnd;
                 callback && callback();
             }.bind(this), 'json');
         },
         loadMore: function () {
             var _this = this;
+            if(this.isEnd){
+                alert('没有数据了!');
+                return;
+            }
             if(this.isLoaded){//如果isLoaded为true代表已经加载完，可以再次进行加载
+                this.pageNo++;
                 this.isLoaded = false;
                 this.loadData();
             }

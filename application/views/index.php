@@ -5,6 +5,7 @@
     <title>首页</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <base href="<?php echo site_url();?>">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,600,800,700,500,300,100,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Arimo:400,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css">
@@ -99,30 +100,6 @@
             <img src="img/loading.gif" alt="">
         </div>
         <ul id="product-list">
-            <!--<li><img src="uploads/products/bs1.jpg" alt="">
-                <div class="product-info">
-                    <h3 class="product-name">BELLE B&W</h3>
-                    <strong class="product-price">$187.95</strong>
-                    <input type="text" class="quantity" value="1">
-                    <button class="btn-add-cart">Add</button>
-                </div>
-            </li>
-            <li><img src="uploads/products/bs2.jpg" alt="">
-                <div class="product-info">
-                    <h3 class="product-name">CLUBYORK</h3>
-                    <strong class="product-price">$187.95</strong>
-                    <input type="text" class="quantity" value="1">
-                    <button class="btn-add-cart">Add</button>
-                </div>
-            </li>
-            <li><img src="uploads/products/bs3.jpg" alt="">
-                <div class="product-info">
-                    <h3 class="product-name">ROADSTER</h3>
-                    <strong class="product-price">$220.95</strong>
-                    <input type="text" class="quantity" value="1">
-                    <button class="btn-add-cart">Add</button>
-                </div>
-            </li>-->
         </ul>
         <div id="load-more">
             加载更多...
