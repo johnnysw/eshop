@@ -23,9 +23,9 @@
             <h1 id="logo">NEW FASHIONS</h1>
         </div>
         <ul id="nav" class="wrapper">
-            <li class="active"><a href="#">HOME</a></li>
-            <li>
-                <a href="#">WOMEN</a>
+            <li class="main-menu active"><a href="javascript:;" data-cate="0">首页</a></li>
+            <li class="main-menu">
+                <a href="javascript:;" data-cate="2">女士</a>
                 <div class="sub-menu">
                     <div class="div col">
                         <h4>item 1</h4>
@@ -84,10 +84,10 @@
                     </div>
                 </div>
             </li>
-            <li><a href="#">MEN</a></li>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">BLOG</a></li>
-            <li><a href="#">SHOP ONLINE</a></li>
+            <li class="main-menu"><a href="javascript:;" data-cate="1">男士</a></li>
+            <li class="main-menu"><a href="javascript:;" data-tag="1">潮人推荐</a></li>
+            <li class="main-menu"><a href="javascript:;">博客</a></li>
+            <li class="main-menu"><a href="javascript:;">关于我们</a></li>
         </ul>
     </div>
     <div id="product" class="wrapper">
