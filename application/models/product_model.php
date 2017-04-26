@@ -59,4 +59,25 @@ class Product_model extends CI_Model {
         }
         return  $this->db->query($sql)->result();
     }
+    public function get_by_id($prod_id){
+        $product = $this->db->get_where('t_product', array('prod_id'=>$prod_id))->row();
+        $product->imgs = $this->db->get_where('t_product_img', array('prod_id'=>$prod_id))->result();
+        return $product;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -8,6 +8,7 @@
     <base href="<?php echo site_url();?>">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,600,800,700,500,300,100,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Arimo:400,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -105,9 +106,11 @@
             加载更多...
         </div>
     </div>
+    <?php include 'dialog.php';?>
+
     <script id="product-tpl" type="text/html">
         <li class="product-item">
-            <img src="{{img}}" alt="">
+            <a href="product/detail/{{id}}"><img src="{{img}}" alt=""></a>
             <div class="product-info">
                 <h3 class="product-name">{{name}}</h3>
                 <strong class="product-price">${{price}}</strong>
@@ -118,7 +121,10 @@
     </script>
 
     <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script src="js/template.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/model.js"></script>
     <script src="js/index.js"></script>
 </body>
 </html>
