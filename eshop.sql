@@ -11,7 +11,7 @@
  Target Server Version : 50624
  File Encoding         : utf-8
 
- Date: 04/22/2017 18:05:23 PM
+ Date: 05/02/2017 15:45:33 PM
 */
 
 SET NAMES utf8;
@@ -196,6 +196,13 @@ CREATE TABLE `t_user` (
   `tel` varchar(50) DEFAULT NULL,
   `portrait` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Records of `t_user`
+-- ----------------------------
+BEGIN;
+INSERT INTO `t_user` VALUES ('1', 'lisi', 'admin', 'lisi@163.com', '123456', null);
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
