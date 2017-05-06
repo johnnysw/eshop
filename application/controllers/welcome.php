@@ -1,10 +1,22 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('product_model');
 
+    }
 
 	public function index()
 	{
+        $loginUser = $this->session->userdata('loginUser');
+        if($loginUser){
+            $cart_info = $this -> product_model -> get_cart_by_user_id($loginUser -> user_id);
+            $this->session->set_userdata('cartInfo', $cart_info);
+        }else{
+            $this->session->set_userdata('cartInfo', null);
+        }
 		$this->load->view('index');
 	}
 

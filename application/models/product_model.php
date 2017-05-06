@@ -65,6 +65,45 @@ class Product_model extends CI_Model {
         return $product;
     }
 
+    public function add_cart($quantity, $id)
+    {
+        $data = array(
+            'prod_id' => $id,
+            'quantity' => $quantity ,
+            'user_id' => $this->session->userdata('loginUser') -> user_id
+        );
+        $this->db->insert('t_cart', $data);
+        return $this->db->affected_rows();
+    }
+
+    public function update_cart($prod_id, $old_quantity, $new_quantity, $user_id)
+    {
+        $data = array(
+            'quantity' => $old_quantity + $new_quantity
+        );
+
+        $this->db->where('prod_id', $prod_id);
+        $this->db->where('user_id', $user_id);
+        $this->db->update('t_cart', $data);
+        return $this->db->affected_rows();
+    }
+
+    public function get_cart_by_prod_id($prod_id){
+        return $this->db->get_where('t_cart', array('prod_id'=>$prod_id))->row();
+    }
+
+    public function get_cart_by_user_id($user_id)
+    {
+        $sql = 'select sum(quantity) total_quantity,sum(prod_price*quantity) total_price from t_cart c,t_product p where c.prod_id=p.prod_id and c.user_id='.$user_id;
+        return  $this->db->query($sql)->row();
+    }
+
+    public function get_cart_info_user_id($user_id)
+    {
+        $sql = 'select * from t_cart c, t_product p,t_product_img i where c.prod_id=p.prod_id and p.prod_id=i.prod_id and i.is_main=1 and c.user_id='.$user_id;
+        return  $this->db->query($sql)->result();
+    }
+
 
 
 
