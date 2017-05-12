@@ -3,13 +3,13 @@
     <div class="top-menu wrapper">
         <a href="#" id="login">LOGIN</a>
         <div id="cart-box">
-            <a href="product/cart">
+            <router-link to="/cart">
                 Cart: <span id="money">
                 
                 </span>(<span id="quantity">
                 
                 </span>)
-            </a>
+            </router-link>
         </div>
         <h1 id="logo">NEW FASHIONS</h1>
     </div>
