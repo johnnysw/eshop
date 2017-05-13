@@ -1,0 +1,45 @@
+<div class="wrapper house-detail-box">
+    <a href="JavaScript:;" class="btn btn-primary btn-sm house-to-edit" type="button">商品信息</a>
+
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">id</label>
+                            <div class="col-lg-10">
+                                <p class="form-control-static" id="prod-id">{{prod_id}}</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">商品名称</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="name"  value={{prod_name}}></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">价格</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="price" value={{prod_price}}></p>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">描述</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="description" value={{description}}></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10">
+                                <button id="product-edit">修改</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

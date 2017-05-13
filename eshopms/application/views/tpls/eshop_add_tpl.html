@@ -1,0 +1,53 @@
+<div class="wrapper house-detail-box">
+    <a href="JavaScript:;" class="btn btn-primary btn-sm house-to-edit" type="button">商品信息</a>
+
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" action="eshop/add_product" method="post">
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">商品名称</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" name="name" ></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">价格</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" name="price" ></p>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">描述</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" name="description"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-2 col-sm-2 control-label">照片</label>
+                            <div class="col-lg-9">
+                                <div class="fileupload fileupload-new house-upload-box" data-provides="fileupload">
+                                    <ul id="ul_pics" class="ul_pics clearfix">
+                                        <li class="house-upload-btn">
+                                            <div class="fileupload-new thumbnail house-upload">
+                                                <img src="images/photo-upload.jpg" alt="" id="btn">
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10">
+                                <button id="product-add">添加</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
